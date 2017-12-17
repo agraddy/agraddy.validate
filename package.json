@@ -1,0 +1,22 @@
+{
+  "name": "agraddy.validate",
+  "version": "0.1.0",
+  "description": "Coming soon.",
+  "main": "index.js",
+  "author": "Anthony Graddy",
+  "license": "MIT",
+  "homepage": "https://github.com/agraddy/agraddy.validate#readme",
+  "scripts": {
+    "test": "node ./test"
+  },
+  "repository": {
+	  "type": "git",
+	  "url": "git://github.com/agraddy/agraddy.validate.git"
+  },
+  "bugs": {
+	  "url": "https://github.com/agraddy/agraddy.validate/issues"
+  },
+  "devDependencies": {
+	  "agraddy.test.tap": "^0.4.0"
+  }
+}

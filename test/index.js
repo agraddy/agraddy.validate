@@ -123,10 +123,16 @@ try {
 
 
 function fail(item, name, message, type) {
+	var bool = true;
 	var msg = '%s Fail';
 	if(message) {
 		msg = message;
 	}
+
+	bool = false;
+	return mod.result(bool, util.format(msg, name), type);
+
+	/*
 	if(type === String || type === Array) {
 		return util.format(msg, name);
 	} else if(type === Boolean) {
@@ -136,6 +142,7 @@ function fail(item, name, message, type) {
 	} else {
 		return false;
 	}
+	*/
 }
 function pass(item, name, message, type) {
 	if(type === String || type === Array) {

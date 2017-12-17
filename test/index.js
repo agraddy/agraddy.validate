@@ -9,6 +9,9 @@ var item = 'test';
 
 // TODO: Eventually use mod.setup to fail on first or return all failures
 
+// Aliases
+tap.assert.deepEqual(mod.equal, mod.equals, true, 'equal and equals should be the same.');
+
 // Basic boolean result
 tap.assert.equal(mod(item, 'Item', pass, Boolean), true, 'Should return a Boolean.');
 tap.assert.equal(mod(item, 'Item', fail, Boolean), false, 'Should return a Boolean.');

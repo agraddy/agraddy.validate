@@ -11,6 +11,7 @@ var item = 'test';
 
 // Aliases
 tap.assert.deepEqual(mod.equal, mod.equals, true, 'equal and equals should be the same.');
+tap.assert.deepEqual(mod.int, mod.integer, true, 'equal and equals should be the same.');
 
 // Basic boolean result
 tap.assert.equal(mod(item, 'Item', pass, Boolean), true, 'Should return a Boolean.');
@@ -104,6 +105,21 @@ tap.assert.equal(mod('one!', 'Item', mod.max(3), Boolean), false, 'validate.max 
 tap.assert.equal(mod(3, 'Item', mod.max(3), Boolean), true, 'validate.max working.');
 tap.assert.equal(mod(4, 'Item', mod.max(3), Boolean), false, 'validate.max working.');
 
+// validate.int working
+tap.assert.equal(mod('', 'Item', mod.int, Boolean), false, 'validate.int working.');
+tap.assert.equal(mod(null, 'Item', mod.int, Boolean), false, 'validate.int working.');
+tap.assert.equal(mod(false, 'Item', mod.int, Boolean), false, 'validate.int working.');
+tap.assert.equal(mod(0, 'Item', mod.int, Boolean), true, 'validate.int working.');
+tap.assert.equal(mod(10.3, 'Item', mod.int, Boolean), false, 'validate.int working.');
+tap.assert.equal(mod(10, 'Item', mod.int, Boolean), true, 'validate.int working.');
+
+// Throw error with info when validator does not exist.
+// TODO: Callback with erro when validator does not exist.
+try {
+	mod(10, 'Item', mod.doesNotExist, Boolean);
+} catch(e) {
+	tap.assert.equal(true, true, 'Throw error when validator does not exist.');
+}
 
 
 function fail(item, name, message, type) {

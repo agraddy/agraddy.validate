@@ -113,6 +113,12 @@ tap.assert.equal(mod(0, 'Item', mod.int, Boolean), true, 'validate.int working.'
 tap.assert.equal(mod(10.3, 'Item', mod.int, Boolean), false, 'validate.int working.');
 tap.assert.equal(mod(10, 'Item', mod.int, Boolean), true, 'validate.int working.');
 
+// validate.email working
+tap.assert.equal(mod('', 'Email', mod.email, Boolean), false, 'validate.email working.');
+tap.assert.equal(mod('email', 'Email', mod.email, Boolean), false, 'validate.email working.');
+tap.assert.equal(mod('test@example.com', 'Email', mod.email, Boolean), true, 'validate.email working.');
+tap.assert.equal(mod('TEST@EXAMPLE.COM', 'Email', mod.email, Boolean), true, 'validate.email working.');
+
 // Throw error with info when validator does not exist.
 // TODO: Callback with erro when validator does not exist.
 try {

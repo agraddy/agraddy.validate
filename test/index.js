@@ -119,6 +119,9 @@ tap.assert.equal(mod('email', 'Email', mod.email, Boolean), false, 'validate.ema
 tap.assert.equal(mod('test@example.com', 'Email', mod.email, Boolean), true, 'validate.email working.');
 tap.assert.equal(mod('TEST@EXAMPLE.COM', 'Email', mod.email, Boolean), true, 'validate.email working.');
 
+// validate.fail should automatically fail
+tap.assert.equal(mod('Test', 'Item', mod.fail, Boolean), false, 'validate.fail should always fail.');
+
 // Throw error with info when validator does not exist.
 // TODO: Callback with erro when validator does not exist.
 try {
